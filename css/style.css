@@ -122,6 +122,26 @@ body.loaded {
   border-radius: 50px;
 }
 
+.subRed:hover{
+  border-bottom: 1px solid red;
+	-webkit-animation: flash linear 1s infinite;
+	animation: flash linear 1s infinite;
+}
+.flashit{
+  color:#f2f;
+	-webkit-animation: flash linear 1s infinite;
+	animation: flash linear 1s infinite;
+}
+@-webkit-keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}
+@keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}
 /*=== UTILITIES CLASSES ===*/
 .font-primary {
   font-family: "Barlow Condensed", sans-serif;
@@ -445,16 +465,16 @@ ul, li {
   }
 }
 .sidenav .navbar-brand img {
-  max-width: 150px;
+  /* max-width: 150px; */
 }
 @media (max-width: 991px) {
   .sidenav .navbar-brand img {
-    max-width: 120px;
+    /* max-width: 120px; */
   }
 }
 @media (max-width: 767px) {
   .sidenav .navbar-brand img {
-    max-width: 100px;
+    /* max-width: 100px; */
   }
 }
 .sidenav .nav-link {
@@ -620,8 +640,31 @@ ul, li {
   }
 }
 
+
+pre code {
+  border-left: 4px solid #e4102f;
+
+}
+
+
+
+.blt{
+  list-style:none;
+  position: relative;
+  padding-left:20px;
+  line-height: 2;
+
+}
+.blt:before {
+  font-family:FontAwesome;
+  position: absolute;
+  left: 0;
+
+  content:"\f111"; 
+}
+
 .blockquote-text {
-  font-size: 24px;
+  /* font-size: 24px; */
   position: relative;
 }
 .blockquote-text::before, .blockquote-text::after {

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Spring Boot AOP - 4Dev.fun - Tudo sobre Java, Spring Boot e mais umas coisinhas ;)</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+</head>
+<body>
+    <!-- START preloader-wrapper -->
+    <div class="preloader-wrapper">
+        <div class="preloader-inner">
+            <div class="spinner-border text-red"></div>
+        </div>
+    </div>
+    <!-- END preloader-wrapper -->
+    
+    <!-- START main-wrapper -->
+    <section class="d-flex">
+  
+<!-- start of sidenav -->
+<aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
+    <a class="navbar-brand" href="index.html" class="logo">
+        <img src="images/logo.png" alt="">
+    </a>
+    <!-- end of navbar-brand -->
+
+    <div class="navbar navbar-dark my-4 p-0 font-primary">
+        <ul class="navbar-nav w-100">
+            <li class="nav-item">
+                <a class="nav-link text-white px-0 pt-0" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link text-white px-0" href="springboot.html">SpringBoot</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white px-0" href="contato.html">Contato</a>
+            </li>
+        </ul>
+    </div>
+    <!-- end of navbar -->
+
+    <ul class="list-inline nml-2">
+        <li class="list-inline-item">
+            <a href="https://www.github.com/rocha-dan" target="_blank" class="text-white text-red-onHover p-2">
+                <span class="fab fa-github"></span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover p-2">
+                <span class="fab fa-linkedin-in"></span>
+            </a>
+        </li>
+    </ul>
+    <!-- end of social-links -->
+</div></aside>
+<!-- end of sidenav -->
+    <div class="main-content">
+        <!-- start of mobile-nav -->
+<header class="mobile-nav pt-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="col-6 text-right">
+                <button class="nav-toggle bg-transparent border text-white">
+                    <span class="fas fa-bars"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="nav-toggle-overlay"></div>
+<!-- end of mobile-nav -->
+
+            <div class="container py-4 my-5">
+                <div class="row">
+
+</div>
+                
+                <div class="row justify-content-between">
+                    <div class="col-lg-10">
+                        <img class="img-fluid" src="images/aspect-oriented-programming.png" alt="">
+                        <h1 class="text-white add-letter-space mt-4">Introdução ao Spring AOP</h1>
+                        <ul class="post-meta mt-3 mb-4">
+                            <li class="d-inline-block mr-3">
+                                <span class="fas fa-clock text-primary"></span>
+                                <a class="ml-1" href="#">28 Outubro, 2022</a>
+                            </li>
+                            <li class="d-inline-block">
+                                <span class="fas fa-list-alt text-primary"></span>
+                                <a class="ml-1" href="#">SpringBoot</a>
+                            </li>
+                        </ul>
+
+                        <p>“Programação orientada a aspectos” é um nome curioso. Isso vem do fato de que estamos adicionando novos aspectos às classes existentes. É uma evolução do padrão de design decorador. Um decorador é algo que você codifica à mão antes de compilar, usando interfaces ou classes base para aprimorar um componente existente. Isso é tudo bom e bom, mas a programação orientada a aspectos leva isso a outro nível. O AOP permite que você aprimore as classes com muito mais flexibilidade do que o padrão decorador tradicional. Você pode até fazer isso com código de terceiros.</p>
+                    </br>
+                    <p>AOP é usado quando você deseja adicionar funções adicionais antes e depois da lógica de negócios principal.
+                    </br>Por exemplo, processamento de log, processamento de segurança, processamento de transações de banco de dados etc.
+                    </p>
+
+                        <div class="widget"></br>
+                            <h1 class="widget-title text-white d-inline-block mb-4">Por que usar?</h1>
+                            <p>
+                                <li class="blt">A duplicação de código pode ser reduzida.</li> 
+                                <li class="blt">A lógica de negócios principal e a lógica adicional podem ser separadas.</li> 
+                            </p>
+                        </div>
+
+                        <div class="widget">
+                            <h1 class="widget-title text-white d-inline-block mb-4">AOP Conceitos</h1>
+                            <p>Antes de começarmos a trabalhar com AOP, vamos nos familiarizar com os conceitos e a terminologia AOP. Esses termos não são específicos do Spring, mas sim relacionados ao AOP.
+                            </br>  </br> 
+                                <table class="table table-bordered text-center text-white table-transparent">
+                                    <thead class="bg-dark">
+                                        <tr>
+                                            <th class="h3" scope="col">Termo</th>
+                                            <th class="h3" scope="col">Descrição</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Aspect</td>
+                                            <td>Este é um módulo que possui um conjunto de APIs que fornecem requisitos transversais. Por exemplo, um módulo de registro seria chamado de aspecto AOP para registro. Um aplicativo pode ter qualquer número de aspectos, dependendo do requisito.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Join point</td>
+                                            <td>Isso representa um ponto em seu aplicativo onde você pode plugar o aspecto AOP. Você também pode dizer que é o local real no aplicativo onde uma ação será executada usando a estrutura Spring AOP.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Advice</td>
+                                            <td>Esta é a ação real a ser tomada antes ou depois da execução do método. Este é um pedaço de código real que é invocado durante a execução do programa pela estrutura Spring AOP.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pointcut</td>
+                                            <td>Este é um conjunto de um ou mais pontos de junção onde um aviso deve ser executado. Você pode especificar pointcuts usando expressões ou padrões como veremos em nossos exemplos de AOP.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Introduction</td>
+                                            <td>Uma introdução permite adicionar novos métodos ou atributos às classes existentes.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Target object</td>
+                                            <td>O objeto sendo aconselhado por um ou mais aspectos. Este objeto sempre será um objeto proxy, também conhecido como objeto aconselhado.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Weaving</td>
+                                            <td>A tecelagem é o processo de vincular aspectos com outros tipos de aplicativos ou objetos para criar um objeto aconselhado. Isso pode ser feito em tempo de compilação, tempo de carregamento ou em tempo de execução.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+
+                        <div class="widget"></br>
+                            <h1 class="widget-title text-white d-inline-block mb-4">Implementando AOP com Spring Boot</h1>
+                            <p>E agora vamos colocar essas definições em um exemplo de codificação onde criamos uma anotação de log que desconecta uma mensagem no console antes que a execução do método seja iniciada.</p>
+                        </br> 
+                            <h2>Dependências</h2>
+                             <p>Para usar o Spring AOP, precisamos adicionar dependência para a biblioteca de aspectos do Spring. Certifique-se de usar a versão mais recente.</p>
+                             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Frocha-dan%2Fspringboot-aop%2Fblob%2Fmain%2Fpom.xml&style=atom-one-dark&type=code&showFullPath=on&showCopy=on"></script>                            <h2>Habilitando o Aspecto no Spring Boot</h2>
+                            <p>Se estivermos desenvolvendo um aplicativo Spring, precisamos habilitar explicitamente o módulo Programação Orientada a Aspectos. Para fazer isso, podemos usar a anotação<font style="color:yellow">@Aspect</font> na classe de configuração.<br>Por se tratar de uma aplicação Spring Boot, a configuração automática ativa automaticamente o módulo quando encontra a dependência no caminho da classe.</p>
+                            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Frocha-dan%2Fspringboot-aop%2Fblob%2Fmain%2Fsrc%2Fmain%2Fjava%2Fbr%2Fcom%2Frocha%2Fdan%2Faop%2FRestControllerAspect.java&style=atom-one-dark&type=code&showFullPath=on&showCopy=on"></script>                            </pre><br>
+                            <h2>Exemplo de código</h2>
+                            <p>Partindo do exemplo que temos uma API Rest, com apenas um endpoint do verbo GET e este nos retorna os Usuários do sistema a partir de um <font style="color:yellow">@RequestParam</font> enviado.<br>Nesse exemplo não implementaremos a camada Service ou Repository para facilitar o entendimento.<br></p>
+                            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Frocha-dan%2Fspringboot-aop%2Fblob%2Fmain%2Fsrc%2Fmain%2Fjava%2Fbr%2Fcom%2Frocha%2Fdan%2Fcontroller%2FUserController.java&style=atom-one-dark&type=code&showFullPath=on&showCopy=on"></script>
+                        
+                        <p>Último passo, vamos subir a aplicação e realizar uma chamada GET local via: <a href="https://github.com/rocha-dan/springboot-aop" class="text-white opacity-75-onHover">http://localhost:8080/users?groupId=teste-group-id</a> e então teremos o resultado:<br>
+                            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Frocha-dan%2Fspringboot-aop%2Fblob%2Fmain%2Fsrc%2Fmain%2Fresources%2Fresult.txt&style=atom-one-dark&type=code&showFullPath=on&showCopy=on"></script>
+                        </p>
+                        </div>
+
+                        <div class="widget"></br>
+                            <h1 class="widget-title text-white d-inline-block mb-4">Opções de interceptação que o AOP oferece</h1>
+
+                            <p>Um dos outros recursos que você pode implementar usando AOP são anotações personalizadas para interceptar chamadas de método.</p>
+                            <p>Como no exemplo abaixo:</p>
+                            <table class="table table-bordered text-center text-white table-transparent">
+                                <thead class="bg-dark">
+                                    <tr>
+                                        <th class="h3" scope="col">Termo</th>
+                                        <th class="h3" scope="col">Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@Before</td>
+                                        <td>Ele é executado antes da execução do método.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@After</td>
+                                        <td>Executado em duas situações - quando um método é executado com sucesso ou lança uma exceção.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@AfterReturning</td>
+                                        <td>Executado somente quando um método é executado com sucesso.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@AfterThrowing</td>
+                                        <td>Executado somente quando um método lança uma exceção.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Around</td>
+                                        <td>Intercepta a chamada do método e usa joinPoint.proceed() para executar o método.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+                        <div class="widget"></br>
+                            <h1 class="widget-title text-white d-inline-block mb-4">Ficou com dúvida?</h1>
+                            <p>
+                                Acesse esse repositório no Github -> <a target="_blank" href="https://github.com/rocha-dan/springboot-aop" class="text-white opacity-75-onHover">https://github.com/rocha-dan/springboot-aop</a>
+                            </p>
+                            <p>
+                                Veja também a Documentação oficial -> <a target="_blank" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using.build-systems.starters" class="text-white opacity-75-onHover">https://docs.spring.io/spring-boot/docs/</a>
+                            </p>
+                        </div>
+                      
+                            <!-- end colors -->
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- start of footer -->
+<footer class="bg-dark">
+    <div class="container">
+       
+    </div>
+</footer>
+<!-- end of footer -->
+        </div>
+    
+        </section>
+    <!-- END main-wrapper -->
+
+    <!-- All JS Files -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
